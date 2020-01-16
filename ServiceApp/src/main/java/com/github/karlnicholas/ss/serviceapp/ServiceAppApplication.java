@@ -11,8 +11,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.github.karlnicholas.ss.model.School;
 import com.github.karlnicholas.ss.model.Student;
 
-import reactor.core.publisher.Flux;
-
 @SpringBootApplication
 public class ServiceAppApplication implements CommandLineRunner {
 

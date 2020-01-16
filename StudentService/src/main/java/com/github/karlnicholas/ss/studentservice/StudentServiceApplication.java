@@ -3,6 +3,7 @@ package com.github.karlnicholas.ss.studentservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.karlnicholas.ss.model.Student;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @SpringBootApplication
 @RestController
@@ -26,5 +28,9 @@ public class StudentServiceApplication {
 		} else {
 			return Flux.just(new Student("S3"), new Student("S4"));
 		}
+	}
+	@PostMapping("student")
+	Mono<Student> makeStudent(@RequestParam String school) {
+		return Mono.just(new Student("S3:"+school));
 	}
 }
